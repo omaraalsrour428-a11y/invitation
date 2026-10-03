@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دعوة تخرج</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --page:#E4F2F1; --card:#FBFEFE; --ink:#0E4A57; --soft:#4F7F88; --gold:#B58E45; --mint:#D6EEEC; --line:#9CCBC7;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--page:#0B2A31;}
+}
+:root[data-theme="dark"]{--page:#0B2A31;}
+*{box-sizing:border-box}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;min-height:100%;background:var(--page);color:var(--ink);
+  font-family:"Tajawal","Segoe UI",Tahoma,Arial,sans-serif;
+  display:flex;justify-content:center;padding:20px 14px;
+}
+.card{
+  position:relative;width:100%;max-width:560px;background:var(--card);
+  border:1.5px solid var(--gold);border-radius:6px;padding:10px;
+  box-shadow:0 10px 30px rgba(14,74,87,.18);
+}
+.inner{
+  position:relative;overflow:hidden;border:1px solid var(--line);border-radius:3px;
+  padding:34px 22px 30px;text-align:center;
+}
+.wm{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;color:var(--ink);opacity:.075}
+.content{position:relative;z-index:1}
+.bism{font-family:"Amiri",serif;font-size:30px;font-weight:700;color:var(--gold);margin:0 0 10px;line-height:1.5}
+.verse{font-family:"Amiri",serif;font-size:21px;margin:0 0 20px;line-height:1.9;color:var(--ink)}
+.praise{font-family:"Amiri",serif;font-size:22px;font-weight:700;margin:0 0 14px;line-height:1.8}
+.body{font-size:16.5px;line-height:2;margin:0 auto 18px;max-width:440px;color:var(--soft)}
+.title{
+  font-family:"Amiri",serif;font-size:27px;font-weight:700;line-height:1.7;
+  margin:0 auto 24px;padding:14px 12px;background:var(--mint);
+  border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);
+}
+.label{font-size:16px;color:var(--soft);margin:0}
+.name{font-family:"Amiri",serif;font-size:30px;font-weight:700;margin:2px 0 26px;line-height:1.6}
+.details{
+  display:grid;grid-template-columns:1.35fr 1fr .8fr;gap:8px;margin:0 0 24px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;
+}
+.d{display:flex;flex-direction:column;align-items:center;gap:6px;padding:0 4px}
+.d + .d{border-inline-start:1px solid var(--line)}
+.d svg{width:30px;height:30px;color:var(--gold);stroke:currentColor;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.d b{font-size:14px;color:var(--soft);font-weight:500}
+.d span{font-size:14.5px;line-height:1.55;font-weight:700}
+.d small{display:block;font-size:12.5px;font-weight:500;color:var(--soft);direction:ltr}
+.close{font-family:"Amiri",serif;font-size:22px;font-weight:700;margin:0;color:var(--gold);line-height:1.8}
+@media (max-width:400px){
+  .inner{padding:28px 14px 24px}
+  .bism{font-size:26px}.verse{font-size:19px}.praise{font-size:20px}
+  .body{font-size:15px}.title{font-size:23px}.name{font-size:26px}
+  .d span{font-size:13px}.d b{font-size:13px}.d svg{width:26px;height:26px}
+}
+@media print{body{background:#fff;padding:0}.card{box-shadow:none}}
+
+body.locked{overflow:hidden}
+main.card{opacity:0;transform:translateY(24px) scale(.97);transition:opacity .8s ease .2s,transform .8s ease .2s}
+body.open main.card{opacity:1;transform:none}
+#env{position:fixed;inset:0;z-index:50;background:var(--page);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:20px;padding-top:calc(20px + env(safe-area-inset-top,0px));padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));cursor:pointer;transition:opacity .7s ease .9s,visibility 0s 1.6s}
+body.open #env{opacity:0;visibility:hidden;pointer-events:none}
+.ttl{font-family:"Amiri",serif;font-size:34px;font-weight:700;color:var(--ink);margin:0;text-align:center}
+.hint{font-size:15px;color:var(--soft);margin:0;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+.envelope{position:relative;width:min(86vw,360px);aspect-ratio:3/2;perspective:900px}
+.envelope .back{position:absolute;inset:0;background:#CFE6E4;border:1.5px solid var(--gold);border-radius:6px;box-shadow:0 14px 30px rgba(14,74,87,.22)}
+.paper{position:absolute;left:7%;right:7%;bottom:6%;height:80%;background:var(--card);border:1px solid var(--line);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:"Amiri",serif;font-size:20px;color:var(--gold);font-weight:700;transition:transform .8s ease .55s;z-index:1}
+.front{position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:6px;background:linear-gradient(to top left,transparent 49.6%,#E2F1F0 50%) left bottom/50.2% 100% no-repeat,linear-gradient(to top right,transparent 49.6%,#E2F1F0 50%) right bottom/50.2% 100% no-repeat;clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%)}
+.front::after{content:"";position:absolute;inset:0;background:#DCEEEC;clip-path:polygon(0 100%,0 30%,50% 62%,100% 30%,100% 100%)}
+.flap{position:absolute;left:0;right:0;top:0;height:58%;z-index:3;transform-origin:top;transition:transform .7s ease,z-index 0s .35s;background:#B9DAD7;clip-path:polygon(0 0,100% 0,50% 100%);border-radius:6px 6px 0 0}
+.seal{position:absolute;left:50%;top:58%;width:54px;height:54px;margin:-27px 0 0 -27px;z-index:4;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(0,0,0,.25);transition:opacity .3s}
+.seal svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+body.open .flap{transform:rotateX(180deg);z-index:0}
+body.open .seal{opacity:0}
+body.open .paper{transform:translateY(-70%)}
+body.open .hint,body.open .ttl{opacity:0;transition:opacity .4s}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01s!important;transition-delay:0s!important;animation:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="tooth" viewBox="0 0 64 64"><path d="M32 10C26 4 12 5 12 21C12 31 17 36 18 46C19 56 22 58 25 58C29 58 29 46 32 46C35 46 35 58 39 58C42 58 45 56 46 46C47 36 52 31 52 21C52 5 38 4 32 10Z"/></symbol>
+    <symbol id="implant" viewBox="0 0 64 64"><rect x="20" y="5" width="24" height="9" rx="3"/><path d="M24 16H40L36 58H28Z"/><path d="M24 24H40M25 32H39M26 40H38M27 48H37"/></symbol>
+    <symbol id="cap" viewBox="0 0 64 64"><path d="M32 12L60 25L32 38L4 25Z"/><path d="M16 31V44C16 50 48 50 48 44V31"/><path d="M60 25V42"/><circle cx="60" cy="45" r="2.5"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 64 64"><rect x="8" y="12" width="48" height="44" rx="6"/><path d="M8 26H56M20 6V16M44 6V16"/><circle cx="24" cy="40" r="2"/><circle cx="40" cy="40" r="2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24"/><path d="M32 18V32L42 38"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 64 64"><path d="M32 59C20 43 14 35 14 26a18 18 0 1 1 36 0c0 9-6 17-18 33Z"/><circle cx="32" cy="26" r="6"/></symbol>
+  </defs>
+</svg>
+
+<div id="env" role="button" tabindex="0" aria-label="افتح الدعوة">
+  <p class="ttl">دعوة تخرج</p>
+  <div class="envelope">
+    <div class="back"></div>
+    <div class="paper">دعوة مناقشة مشروع تخرج</div>
+    <div class="front"></div>
+    <div class="flap"></div>
+    <div class="seal"><svg viewBox="0 0 64 64"><use href="#cap"/></svg></div>
+  </div>
+  <p class="hint">اضغط لفتح الدعوة</p>
+</div>
+<script>
+(function(){var b=document.body,e=document.getElementById("env");b.classList.add("locked");
+function o(){if(b.classList.contains("open"))return;b.classList.add("open");setTimeout(function(){b.classList.remove("locked")},1600)}
+e.addEventListener("click",o);e.addEventListener("keydown",function(k){if(k.key==="Enter"||k.key===" ")o()})})();
+</script>
+<main class="card">
+  <div class="inner">
+    <!-- Watermark: digital dentistry (tooth + scan lines), implant, graduation cap -->
+    <svg class="wm" viewBox="0 0 500 800" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <use href="#tooth" x="100" y="230" width="300" height="300"/>
+      <g stroke-dasharray="4 8" stroke-width="1.6">
+        <path d="M80 300H420M70 360H430M80 420H420M95 480H405"/>
+        <path d="M250 215V545"/>
+      </g>
+      <g fill="currentColor" stroke="none">
+        <circle cx="140" cy="300" r="4"/><circle cx="360" cy="300" r="4"/><circle cx="250" cy="360" r="4"/>
+        <circle cx="170" cy="420" r="4"/><circle cx="330" cy="420" r="4"/><circle cx="250" cy="480" r="4"/>
+      </g>
+      <use href="#implant" x="22" y="570" width="130" height="130"/>
+      <use href="#cap" x="350" y="40" width="130" height="130"/>
+    </svg>
+
+    <div class="content">
+      <p class="bism">بسم الله الرحمن الرحيم</p>
+      <p class="verse">( وَآخِرُ دَعْوَاهُمْ أَنِ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ )</p>
+      <p class="praise">الحمد لله الذي أنعم وأتم وأكرم</p>
+      <p class="body">بفضل الله ومنّته نتشرف بدعوتكم لحضور مناقشة مشروع تخرجي لنيل درجة البكالوريوس في طب الأسنان وجراحتها تحت عنوان :</p>
+      <h1 class="title">( إعادة تأهيل الفم والأسنان باستخدام طب الأسنان الرقمي )</h1>
+      <p class="label">الدكتور</p>
+      <p class="name">( عمر أحمد السرور )</p>
+
+      <div class="details">
+        <div class="d">
+          <svg aria-hidden="true"><use href="#i-pin"/></svg>
+          <b>الموقع</b>
+          <span>الجامعة الدولية الخاصة للعلوم والتكنولوجيا <small>IUST</small></span>
+        </div>
+        <div class="d">
+          <svg aria-hidden="true"><use href="#i-cal"/></svg>
+          <b>التاريخ</b>
+          <span><bdi dir="ltr">6/2/2027</bdi></span>
+        </div>
+        <div class="d">
+          <svg aria-hidden="true"><use href="#i-clock"/></svg>
+          <b>الوقت</b>
+          <span>11 صباحاً</span>
+        </div>
+      </div>
+
+      <p class="close">بحضوركم نرتقي فخراً ونزداد علماً</p>
+    </div>
+  </div>
+</main>
+</body>
+</html>
